@@ -1,0 +1,262 @@
+/* editor.css - Минималистичный стиль для редактора интерактивной истории */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #23272f;
+    color: #f1f1f1;
+}
+
+#editor-app {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #23272f;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #181c23;
+    padding: 1.5rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+header h1 {
+    margin: 0 0 0.3rem 0;
+    font-weight: bold;
+    color: #81b1fa;
+    letter-spacing: 0.04em;
+}
+.global-controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+    min-height: 70vh;
+    padding: 1.5rem 2rem;
+}
+
+aside#nodes-list {
+    min-width: 220px;
+    background: #1d2026;
+    border-radius: 8px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(50,68,110,0.07);
+}
+#nodes-list h2 {
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    color: #c2cdec;
+}
+#node-search {
+    margin-bottom: 10px;
+    padding: 3px 7px;
+    border-radius: 5px;
+}
+#node-ul {
+    list-style: none;
+    margin: 0 0 1em 0;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 420px;
+    min-height: 90px;
+}
+#node-ul li {
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    background: transparent;
+    transition: background 0.13s, border 0.13s;
+}
+#node-ul li.selected, #node-ul li:hover {
+    background: #32497c;
+    border-left: 3px solid #86c4e4;
+    color: #fff;
+}
+#add-node {
+    margin-top: 0.25em;
+    background: #72bc7e;
+    border: none;
+    color: #162033;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px #0003;
+}
+#add-node:hover {
+    background: #98eaa7;
+}
+
+section#node-editor {
+    flex: 1;
+    min-width: 350px;
+    background: #20232b;
+    border-radius: 8px;
+    padding: 1.2rem 1.3rem 1rem 1.3rem;
+    box-shadow: 0 0 16px rgba(50,68,110,0.09);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+}
+#node-editor label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+    color: #d2c7b3;
+}
+#edit-node-name, #edit-node-audio, #edit-node-text {
+    background: #323a48;
+    color: #e6eaea;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px 9px;
+}
+#edit-node-text {
+    min-height: 85px;
+    resize: vertical;
+}
+#choices-editor h3 {
+    margin-top: 0.6em;
+    margin-bottom: 0.44em;
+    color: #c9e9a4;
+}
+#choices-ul {
+    list-style: none;
+    margin: 0 0 0.7em 0;
+    padding: 0;
+}
+.choice-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+.choice-item input[type="text"] {
+    width: 100%;
+    min-width: 60px;
+    background: #283040;
+    border: none;
+    color: #e0ffd9;
+    border-radius: 5px;
+    padding: 5px;
+}
+.choice-item button {
+    background: #d16967;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    margin-left: 4px;
+}
+.choice-item button:hover {
+    background: #e98583;
+}
+.node-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.7em;
+}
+.node-actions button {
+    background: #3c90e7;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.node-actions button:hover {
+    background: #4da6ff;
+}
+
+section#global-settings {
+    min-width: 260px;
+    max-width: 290px;
+    background: #181c23;
+    border-radius: 8px;
+    padding: 1.3rem 1.1rem;
+    box-shadow: 0 0 14px #19468018;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+#graph-section {
+    background: #212630;
+    border-radius: 8px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0 0 16px #32446e18;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    max-width: 1200px;
+    width: 98vw;
+}
+#graph-section h2 {
+    color: #b5d6fc;
+    margin: 0 0 0.5em 8px;
+}
+#story-graph {
+    width: 100%;
+    min-height: 480px;
+    height: 56vh;
+    background: #232a38;
+    border-radius: 8px;
+    box-shadow: 0 0 6px #1a346e14;
+    margin: 0 auto 1em auto;
+    position: relative;
+    overflow: hidden;
+}
+@media (max-width: 1100px) {
+    #graph-section, #story-graph {
+        max-width: 100vw;
+        min-width: 0;
+    }
+}
+    margin: 0 0 0.5em 0;
+    color: #b9b9ea;
+}
+#global-settings label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.3em;
+}
+#story-title, #story-cover, #story-start {
+    margin-top: 5px;
+    background: #23272f;
+    color: #e6f3ff;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+button {
+    outline: none;
+    transition: background 0.1s, box-shadow 0.1s;
+}
+
+#status {
+    color: #6cf0b7;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+input[type=file] {
+    color-scheme: dark;
+}

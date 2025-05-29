@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор интерактивных историй</title>
+    <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+    <div id="editor-app">
+        <header>
+            <h1>Редактор интерактивной истории</h1>
+            <div class="global-controls">
+                <button id="new-story">Новая история</button>
+                <input type="file" id="import-json" accept="application/json">
+                <button id="export-json">Скачать JSON</button>
+                <span id="status"></span>
+            </div>
+        </header>
+        <main id="main-content">
+            <aside id="nodes-list">
+                <h2>Узлы</h2>
+                <input type="text" id="node-search" placeholder="Поиск...">
+                <ul id="node-ul"></ul>
+                <button id="add-node">Добавить узел</button>
+            </aside>
+
+            <section id="node-editor" style="display:none;">
+                <h2>Редактировать узел</h2>
+                <label>Название узла <input type="text" id="edit-node-name"></label>
+                <label>Аудиофайл <input type="text" id="edit-node-audio"></label>
+                <label>Текст узла <textarea id="edit-node-text"></textarea></label>
+                <div id="choices-editor">
+                    <h3>Выборы</h3>
+                    <ul id="choices-ul"></ul>
+                    <button id="add-choice">Добавить выбор</button>
+                </div>
+                <div class="node-actions">
+                    <button id="save-node">Сохранить изменения</button>
+                    <button id="delete-node">Удалить узел</button>
+                </div>
+            </section>
+
+            <section id="global-settings">
+                <h2>Глобальные параметры</h2>
+                <label>Название истории <input type="text" id="story-title"></label>
+                <label>Обложка <input type="text" id="story-cover"></label>
+                <label>Стартовый узел <select id="story-start"></select></label>
+            </section>
+            </main>
+<section id="graph-section">
+    <h2>Карта переходов</h2>
+    <div id="story-graph"></div>
+</section>
+    </div>
+    <script src="https://unpkg.com/cytoscape@3.28.0/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+<script src="https://unpkg.com/cytoscape-dagre/cytoscape-dagre.js"></script>
+<script>
+    cytoscape.use(window.cytoscapeDagre);
+</script>
+<script src="editor.js"></script>
+</body>
+</html>

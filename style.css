@@ -1,0 +1,141 @@
+body {
+    background: #181818;
+    color: #fff;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    min-width: 200px;
+    background: #121212;
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1db954;
+    margin-bottom: 2em;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 0.7em 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sidebar nav ul li:hover, .sidebar nav ul .nav-active {
+    background: #252525;
+}
+
+.main-view {
+    flex: 1;
+    padding: 2em 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2em;
+}
+
+#book-info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#cover-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 16px #000a;
+    background: #222;
+}
+
+#player-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#audio-player {
+    width: 350px;
+}
+
+#chapter-title {
+    max-width: 700px;
+    margin: 2em auto 0 auto;
+    background: #fffbe9cc;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #0003;
+    font-family: 'Literata', 'Georgia', serif;
+    font-size: 1.4em;
+    line-height: 1.8;
+    padding: 2.5em 2.2em 2em 2.2em;
+    letter-spacing: 0.01em;
+    color: #231f18;
+    text-align: justify;
+    text-indent: 2em;
+    border: 1.5px solid #b4976c55;
+}
+
+#choices {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#choices button {
+    background: #1db954;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 1em 2em;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+#choices button:hover {
+    background: #17a84b;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Платформенные страницы и прочее */
+.page-section { width: 100%; max-width: 800px; margin: 0 auto; }
+.page-section.hidden { display: none; }
+.page-section h2 { font-family: 'Segoe UI', serif; font-weight: 800; margin-bottom: 1em; text-align: left;}
+.page-section p, .page-section ul { color: #23231a; font-size: 1.23em; margin-bottom: 1.4em; }
+.page-section ul { padding-left: 1.1em; }
+.page-section .subtle { color: #999; font-size: 0.95em; font-style: italic; }
+.fake-form input { padding: 0.6em 1em; margin: 6px 0 13px 0; border-radius: 7px; border: 1px solid #bbb; background: #fffdfa; color:#1e1e0b; font-size: 1.1em;}
+.fake-form button { margin-top: 1em; opacity: 0.6; cursor: not-allowed; background: #666; color: #eee;}
+.profile-box { display: flex; align-items: center; gap: 1.2em; background: #fffbe933; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 1.4em 2em; margin-bottom: 1em;}
+.profile-box .avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; background: #eee;}
+.profile-name  { font-weight: bold; font-size: 1.3em; }
+.profile-email { font-family: 'Segoe UI', monospace; color: #444; font-size: 1.09em; }
+.profile-stats { margin: 10px 0 15px 0; font-size: 1.07em; color: #444;}
+.logout-btn { opacity: 0.6; cursor: not-allowed; background: #ccc; color: #222; border: none; border-radius: 6px; padding: 0.56em 2.4em; margin-top: 0.8em;}
+@media (max-width: 800px) {
+    .main-view { padding: 1em 0.5em; }
+    .page-section { max-width: 97vw; }
+}

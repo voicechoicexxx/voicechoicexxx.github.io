@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>VoiceChoice — Платформа интерактивных аудиокниг</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="logo">📚 VoiceChoice</div>
+        <nav>
+            <ul id="nav-list">
+                <li data-page="main" class="nav-active">Главная</li>
+                <li data-page="about">О проекте</li>
+                <li data-page="register">Регистрация</li>
+                <li data-page="login">Вход</li>
+                <li data-page="profile">Профиль</li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-view">
+        <!-- Главная (книга) -->
+        <section id="page-main" class="page-section">
+            <div id="book-info">
+                <img id="cover-img" src="" alt="Book Cover">
+                <div>
+                    <h1 id="book-title"></h1>
+                </div>
+            </div>
+            <div id="player-section">
+                <audio id="audio-player" controls></audio>
+            </div>
+	                    <div id="choices" class="hidden"></div>
+
+            <div id="chapter-block">
+                <h2 id="chapter-title"></h2>
+            </div>
+        </section>
+        <!-- О проекте -->
+        <section id="page-about" class="page-section hidden">
+            <h2>О платформе VoiceChoice</h2>
+            <p>VoiceChoice — открытая площадка для интерактивных аудиокниг, иллюстрированных историй и аудиоспектаклей с выбором, как в играх-книгах. Выбирайте путь, слушайте озвучку, создавайте собственные ветвящиеся рассказы и проходите чужие!</p>
+            <ul>
+                <li>Бесплатный и открытый код, простой формат историй</li>
+                <li>Аудио, текст, иллюстрации и гибкая структура</li>
+                <li>Выборы-ветвления прямо по ходу прослушивания</li>
+                <li>Авторские страницы, личный кабинет, коллекции книг (будет!)</li>
+            </ul>
+            <p class="subtle">VoiceChoice создан на энтузиазме, без рекламы и донатов — расскажите о нас друзьям!</p>
+        </section>
+        <!-- Регистрация -->
+        <section id="page-register" class="page-section hidden">
+            <h2>Регистрация</h2>
+            <form class="fake-form">
+                <label>E-mail<br><input type="email" placeholder="Ваш email"></label><br>
+                <label>Имя пользователя<br><input type="text" placeholder="Ваш ник"></label><br>
+                <label>Пароль<br><input type="password" placeholder="Пароль"></label><br>
+                <button type="submit" disabled>Создать аккаунт (демо)</button>
+            </form>
+            <p class="subtle">Вход и регистрация недоступны в демо. Сервис воображаемый 😅</p>
+        </section>
+        <!-- Вход -->
+        <section id="page-login" class="page-section hidden">
+            <h2>Вход</h2>
+            <form class="fake-form">
+                <label>E-mail<br><input type="email" placeholder="Email"></label><br>
+                <label>Пароль<br><input type="password" placeholder="Пароль"></label><br>
+                <button type="submit" disabled>Войти (демо)</button>
+            </form>
+            <p class="subtle">Нет аккаунта? <span style="color:#1db954;">Зарегистрируйтесь!</span></p>
+        </section>
+        <!-- Профиль пользователя -->
+        <section id="page-profile" class="page-section hidden">
+            <h2>Профиль пользователя</h2>
+            <div class="profile-box">
+                <img class="avatar" src="https://api.dicebear.com/7.x/lorelei/svg?seed=VoiceChoiceUser" alt="User avatar">
+                <div>
+                    <div class="profile-name">demo_user</div>
+                    <div class="profile-email">user@example.com</div>
+                </div>
+            </div>
+            <div class="profile-stats">
+                <span>Пройдено историй: <b>0</b></span>
+                <span>Любимые жанры: интерактив, аудиотекст, приключения</span>
+            </div>
+            <button disabled class="logout-btn">Выйти (недоступно)</button>
+            <p class="subtle">В этом демо профили фейковые, но стиль будто у настоящего продукта 😎</p>
+        </section>
+    </main>
+</div>
+<script src="app.js"></script>
+<script>
+// --- Простая навигация между страницами
+const navList = document.getElementById('nav-list');
+const sections = document.querySelectorAll('.page-section');
+navList.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'li') {
+        navList.querySelectorAll('li').forEach(li => li.classList.remove('nav-active'));
+        e.target.classList.add('nav-active');
+        const page = e.target.getAttribute('data-page');
+        sections.forEach(sec => {
+            if (sec.id === 'page-' + page) sec.classList.remove('hidden');
+            else sec.classList.add('hidden');
+        });
+    }
+});
+</script>
+</body>
+</html>
